@@ -1,0 +1,40 @@
+---
+  server:
+    applicationConnectors:
+    - type: http
+      port: 8082
+    adminConnectors:
+    - type: http
+      port: 8092
+
+  logging:
+      level: INFO
+      appenders:
+        - type: file
+          currentLogFilename: wellysplosher.log
+          threshold: ALL
+          archive: true
+          archivedLogFilenamePattern: wellysplosher-%d.log
+          archivedFileCount: 5
+          timeZone: UTC
+        - type: console
+
+  jedis:
+      host: pub-redis-13545.eu-central-1-1.1.ec2.redislabs.com
+      port: 13545
+      password: festirun
+
+  lastFm:
+    apiKey: 920fccd140847c58bbc03d56587f9c4e
+    secret: 8e9a0ecd0f2a65db193df07b1576b58d
+
+  spotify:
+    clientId: 25c48e0340dd416f9c7292cc99fe3feb
+    secret: 0d856f62b920480f858cfe832305fdae
+
+
+  mappings:
+    - input: g2015
+      to: g2015
+    - input: g2013
+      to: glast2013
